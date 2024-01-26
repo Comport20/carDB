@@ -11,3 +11,9 @@ spring:
   data:
     rest:
       base-path: /api
+springdoc:
+  api-docs:
+    path: /api-doc
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
