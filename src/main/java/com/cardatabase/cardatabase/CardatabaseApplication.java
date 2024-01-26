@@ -6,7 +6,6 @@ import com.cardatabase.cardatabase.domain.Owner;
 import com.cardatabase.cardatabase.domain.OwnerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +22,6 @@ public class CardatabaseApplication implements CommandLineRunner {
         this.orepository = orepository;
         this.repository = repository;
     }
-
     public static void main(String[] args) {
 		SpringApplication.run(CardatabaseApplication.class, args);
 	}

@@ -2,7 +2,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+    show-sql: true
+    generate-ddl: true
   datasource:
     username: root
     password: admin
     url: jdbc:mariadb://localhost:3307/cardb
+  data:
+    rest:
+      base-path: /api
