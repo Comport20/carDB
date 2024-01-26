@@ -1,4 +1,4 @@
-package com.traing.cardatabase;
+package com.cardatabase.cardatabase;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
