@@ -29,12 +29,9 @@ public class JwtService {
     public String getAuthUser(HttpServletRequest request) {
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (token != null) {
-            String user = Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJwt(token.replace(PREFIX, ""))
-                    .getBody()
-                    .getSubject();
+            String user = Jwts.parserBuilder().setSigningKey(key).build()
+                    .parseClaimsJws(token.replace(PREFIX, ""))
+                    .getBody().getSubject();
             if (user != null) {
                 return user;
             }
