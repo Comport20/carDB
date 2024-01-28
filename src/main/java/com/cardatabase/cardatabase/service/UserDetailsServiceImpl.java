@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     .password(user.getPassword())
                     .roles(user.getRole());
         }, () -> {
-            throw new UsernameNotFoundException("");
+            throw new UsernameNotFoundException("wrong password");
         });
         return userBuilder[0].build();
     }

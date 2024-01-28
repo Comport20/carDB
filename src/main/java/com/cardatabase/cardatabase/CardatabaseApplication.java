@@ -18,14 +18,16 @@ public class CardatabaseApplication implements CommandLineRunner {
     private final OwnerRepository orepository;
     private final CarRepository repository;
     private final AppUserRepository appUserRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public CardatabaseApplication(
             OwnerRepository orepository,
             CarRepository repository,
-            AppUserRepository appUserRepository) {
+            AppUserRepository appUserRepository, PasswordEncoder passwordEncoder) {
         this.orepository = orepository;
         this.repository = repository;
         this.appUserRepository = appUserRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public static void main(String[] args) {
@@ -46,14 +48,10 @@ public class CardatabaseApplication implements CommandLineRunner {
             logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
         }
         appUserRepository.save(new AppUser("user",
-                passwordEncoder().encode("admin"),
+                passwordEncoder.encode("user"),
                 " USER"));
         appUserRepository.save(new AppUser("admin",
-                passwordEncoder().encode("admin"),
+                passwordEncoder.encode("admin"),
                 " ADMIN"));
-    }
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }
